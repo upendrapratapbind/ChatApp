@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignupActivity">
+    <TextView
+        android:id="@+id/tv_signup_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/dp_15"
+        android:textColor="#00ff00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="Signin"/>
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="@dimen/dp_150"
+        android:src="@drawable/chatapp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:scaleType="centerCrop"
+        />
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Name"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/round_corner"
+        />
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Email"
+        android:layout_below="@+id/etName"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/round_corner"
+        />
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Password"
+        android:layout_below="@+id/etUsername"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/round_corner"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPassword"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_background"
+        android:layout_marginTop="20dp"
+        android:text="Signup" />
+
+</RelativeLayout>
