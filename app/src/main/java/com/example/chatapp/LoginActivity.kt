@@ -13,6 +13,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
+    private lateinit var email: String
+    private lateinit var password: String
     private lateinit var mAuthSignIn:FirebaseAuth
     private lateinit var bindingSignIn: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,16 +27,21 @@ class LoginActivity : AppCompatActivity() {
 
         }
         bindingSignIn.btnLogin.setOnClickListener{
-            val email=bindingSignIn.etUsername.text.toString()
-            val password=bindingSignIn.etPassword.text.toString()
-            login(email,password)
+            email=bindingSignIn.etUsername.text.toString()
+            password=bindingSignIn.etPassword.text.toString()
+
+            if (!email.isNullOrEmpty()&&!password.isNullOrEmpty()) {
+
+                    login(email,password)
+
+            }
         }
     }
 
     private fun login(email: String, password: String) {
      mAuthSignIn.signInWithEmailAndPassword(email,password).addOnCompleteListener(this){
          if (it.isSuccessful){
-           val intent=Intent(this@LoginActivity,MainActivity::class.java)
+           val intent = Intent(this@LoginActivity, MainActivity::class.java)
              startActivity(intent)
          }
          else{

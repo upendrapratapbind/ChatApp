@@ -10,16 +10,24 @@ import com.example.chatapp.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class SignupActivity : AppCompatActivity() {
+    private lateinit var email: String
+    private lateinit var password: String
     private lateinit var mAuthSignUp:FirebaseAuth
     private lateinit var bindingSignup:ActivitySignupBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingSignup=DataBindingUtil.setContentView(this,R.layout.activity_signup)
         mAuthSignUp=FirebaseAuth.getInstance()
+        bindingSignup.tvSignupPage.setOnClickListener {
+            val intent = Intent(this@SignupActivity,LoginActivity::class.java)
+            startActivity(intent)
+        }
         bindingSignup.btnSignup.setOnClickListener{
-            val email=bindingSignup.etUsername.text.toString()
-            val password=bindingSignup.etPassword.text.toString()
-            signUp(email,password)
+             email=bindingSignup.etUsername.text.toString()
+             password=bindingSignup.etPassword.text.toString()
+            if (!email.isNullOrEmpty()&&!password.isNullOrEmpty()) {
+                signUp(email, password)
+            }
         }
     }
 
